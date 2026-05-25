@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Restaurant Booking</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #667eea, #764ba2);
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            color: white;
+        }
+
+        .container {
+            width: 60%;
+            margin: auto;
+            margin-top: 50px;
+        }
+
+        h1 {
+            font-size: 36px;
+        }
+
+        .card {
+            background: white;
+            color: black;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+            text-align: left;
+        }
+
+        input, select {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            padding: 12px 20px;
+            background: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #218838;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>🍽️ Restaurant Booking</h1>
+
+    <div class="card">
+        <label>Select Restaurant:</label>
+        <select id="restaurant">
+            <option>Spicy Hub - Hyderabad</option>
+            <option>Urban Bites - Bangalore</option>
+            <option>Royal Feast - Chennai</option>
+            <option>Food Villa - Mumbai</option>
+        </select>
+
+        <label>Your Name:</label>
+        <input type="text" id="name" placeholder="Enter your name">
+
+        <label>Guests:</label>
+        <input type="number" id="guests" placeholder="Enter number of guests">
+
+        <button onclick="book()">Book Now</button>
+
+        <p id="result"></p>
+    </div>
+</div>
+
+<script>
+function book() {
+    let name = document.getElementById("name").value;
+    let guests = document.getElementById("guests").value;
+    let restaurant = document.getElementById("restaurant").value;
+
+    if (!name || !guests) {
+        alert("Please fill all details");
+        return;
+    }
+
+    document.getElementById("result").innerText =
+        "✅ Booking Confirmed!\n\n" +
+        "Name: " + name +
+        "\nRestaurant: " + restaurant +
+        "\nGuests: " + guests;
+}
+</script>
+
+</body>
+</html>
